@@ -25,16 +25,39 @@ function filterEpisodes(episode){
 
   rootElem.innerHTML = "";
 
-  if(episode.name.toLowerCase().includes(searchEpisodesBox.value.toLowerCase())){
+  if(episode.name.toLowerCase().includes(searchEpisodesBox.value.toLowerCase()) || episode.summary.toLowerCase().includes(searchEpisodesBox.value.toLowerCase())){
     return true;
   }else {
     return false;
   }
 }
 
+
+
+
+
+
+
+
+
+
+
 function makePageForEpisodes(episodeList) {
   
-  //rootElem.textContent = `Got ${episodeList.length} episode(s)`;
+  let numberOfEpisodes = document.getElementById("number-of-episodes");
+
+  /*---Decides whether to show the word "episode" in the singular or plural
+based on the amount of results---*/
+
+  let episodeAmount = "";
+  if(episodeList.length == 1){
+    episodeAmount = "episode"
+  }else if(episodeList.length != 1){
+    episodeAmount = "episodes"
+  }
+
+/*------------------------------------*/
+  numberOfEpisodes.textContent = "Displaying" + " " + episodeList.length + " " + episodeAmount;
 
   episodeList.forEach(createCard);
 }

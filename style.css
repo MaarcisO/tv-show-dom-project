@@ -10,3 +10,8 @@
   height: 500px;
   border: solid black;
 }
+
+#searchBoxContainer {
+  display: flex;
+  flex-direction: row;
+}
