@@ -5,6 +5,7 @@ const rootElem = document.getElementById("root");
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
+  makeDropdownList(allEpisodes);
 
   let searchEpisodesBox = document.querySelector("#searchEpisodes");
   searchEpisodesBox.addEventListener("keyup", searchEpisodes);
@@ -23,7 +24,7 @@ function filterEpisodes(episode){
   let searchEpisodesBox = document.querySelector("#searchEpisodes");
   console.log(searchEpisodesBox.value);
 
-  rootElem.innerHTML = "";
+  rootElem.innerHTML ="";
 
   if(episode.name.toLowerCase().includes(searchEpisodesBox.value.toLowerCase()) || episode.summary.toLowerCase().includes(searchEpisodesBox.value.toLowerCase())){
     return true;
@@ -34,7 +35,52 @@ function filterEpisodes(episode){
 
 
 
+/*-----------------dropdown list*----------*/
 
+
+function makeDropdownList(episode){
+  let select = document.getElementById("select-episode");
+
+  let placeholder = document.createElement("option"); /*Makes the text "select episode" appear in the dropdown list when nothing is selected*/
+  placeholder.innerText = "Select Episode";
+  select.appendChild(placeholder);
+
+
+for(i = 0; i < episode.length; i++){
+  let option = document.createElement("option");
+  
+  /*adds a 0 before the number if it is a single digit number*/
+  let seasonPadding = "";
+  if(episode[i].season < 10){
+    seasonPadding = "0";
+  }else {
+    seasonPadding = "0";
+  }
+
+  let episodePadding = "";
+  if(episode[i].number < 10){
+    episodePadding = "0";
+  }else {
+    episodePadding = "";
+  }
+
+  let seasonNumber = "S" + seasonPadding;
+  let episodeNumber = "E" + episodePadding;
+/*--------------------------------------------------------------*/
+  let episodeDropdownListInfo = seasonNumber + episode[i].season + episodeNumber + episode[i].number + " - " + episode[i].name;
+  let episodeOption = document.createTextNode(episodeDropdownListInfo);
+  select.appendChild(option);
+  option.appendChild(episodeOption);
+
+  option.value = episode[i]._links.self.href;
+  function openDropdownLink() {
+        window.location = option.value;
+      }
+  
+
+
+  }
+}
 
 
 

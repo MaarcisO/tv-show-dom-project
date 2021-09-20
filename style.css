@@ -1,17 +1,62 @@
+header {
+  background-color: #594a35;
+  width: 100%;
+}
+
 #root {
-  color: red;
+  color: black;
   display: flex;
   align-items: flex-start;
   flex-flow: row wrap;
+  margin-top: 2em;
 }
 
 #card-container {
   width: 300px;
   height: 500px;
   border: solid black;
+  margin: 2rem;
+  border-radius: 5%;
+  background-color: #ebe6b4;
+  transition: all 0.2s ease-in-out;
+}
+
+#card-container:hover {
+  transform: scale(1.1);
 }
 
 #searchBoxContainer {
   display: flex;
   flex-direction: row;
+  height: 30px;
+  padding: 2rem;
+}
+
+#searchEpisodes {
+  margin-left: 5rem;
+  margin-right: 2rem;
+}
+
+#select-episode {
+  margin-left: 2rem;
+}
+
+h2,
+p {
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5%;
+}
+
+body {
+  background-color: #bdebb4;
+}
+
+#number-of-episodes {
+  color: white;
 }

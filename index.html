@@ -9,10 +9,14 @@
   </head>
 
   <body>
-    <div id=searchBoxContainer>
+    <header>
+       <div id=searchBoxContainer onchange="openDropdownLink()">
+      <select id="select-episode"></select>
       <input type="text" id="searchEpisodes">
       <p id="number-of-episodes"></p>
     </div>
+    </header>
+   
 
     <div id="root">
     </div>
