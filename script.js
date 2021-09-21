@@ -71,18 +71,18 @@ for(i = 0; i < episode.length; i++){
   let episodeOption = document.createTextNode(episodeDropdownListInfo);
   select.appendChild(option);
   option.appendChild(episodeOption);
-
   option.value = episode[i]._links.self.href;
-  function openDropdownLink() {
-        window.location = option.value;
+
+  
+select.onchange = function() {
+        window.open(select.value);
       }
   
 
-
-  }
 }
 
-
+}
+ 
 
 
 
